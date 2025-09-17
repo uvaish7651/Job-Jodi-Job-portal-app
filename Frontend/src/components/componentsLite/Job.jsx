@@ -24,7 +24,7 @@ const Job = ( {job} ) => {
 
     <div className='p-5 rounded-md shadow-xl bg-white border border-gray-300 cursor-pointer hover:shadow-2xl hover:shadow-blue-100 hover:p-3'>
       <div className='flex items-center justify-between'>
-        {" "}
+       
         <p className='text-sm text-gray-500'>{daysAgo(job?.createdAt) === 0 ? "Today" : `${daysAgo(job?.createdAt)}daysAgo`}</p>
         <Button variant="outline" className='rounded-md' size="icon" onClick={() => setBookmarked(!isBookmarked)}>
           {isBookmarked ? <BookMarked /> : <Bookmark />}
@@ -43,7 +43,7 @@ const Job = ( {job} ) => {
 
       <div>
         <h1 className='text-lg font-medium'>{job?.company?.name}</h1>
-        <p className='text-sm text-gray-500'>India</p>
+        <p className='text-sm text-gray-500'>{job?.country}</p>
       </div>
 
       <div>
@@ -61,6 +61,9 @@ const Job = ( {job} ) => {
         </Badge>
         <Badge className="text-violet-600 font-bold" variant="ghost">
           {job?.location}
+        </Badge>
+         <Badge className="text-violet-600 font-bold" variant="ghost">
+          {job?.country}
         </Badge>
         <Badge className="text-black font-bold" variant="ghost">
           {job?.jobType}

@@ -6,8 +6,8 @@ const TermsofServices = () => {
             <h1 className="text-3xl font-bold mb-6">Terms of Services</h1>
 
             <p className="mb-4">
-                Welcome to <strong>Job Jodi</strong> (accessible at{" "}
-                <a href="https://jobjodi.com" className="text-blue-600">
+                Welcome to <strong>Job Jodi</strong> (accessible at
+                <a href="https://job-jodi-app-4.onrender.com" className="text-blue-600">
                     jobjodi.com
                 </a>
                 ). By accessing or using our platform, you agree to follow these Terms

@@ -32,6 +32,7 @@ const PostJob = () => {
     title: "",
     description: "",
     location: "",
+    country: "",
     salary: "",
     companyId: "",
     position: 0,
@@ -125,6 +126,17 @@ const PostJob = () => {
                 onChange={changeEventHandler}
               />
             </div>
+             <div>
+              <Label>Country</Label>
+              <Input
+                type="text"
+                name="country"
+                value={input.country}
+                placeholder="Enter Job location"
+                className="focus-visible:ring-offset-0 focus-visible:ring-0 my-1 hover:shadow-blue-400"
+                onChange={changeEventHandler}
+              />
+            </div>
             <div>
               <Label>Salary</Label>
               <Input
@@ -212,7 +224,7 @@ const PostJob = () => {
 
             {loading ? (
               <Button className=" w-1/2 px-4 py-2 text-sm text-white ">
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait{" "}
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait
               </Button>
             ) : (
               <Button type="submit" className=" w-1/2 px-4 py-2 text-sm text-white bg-blue-600 hover:bg-blue-700 cursor-pointer">
@@ -235,7 +247,6 @@ const PostJob = () => {
 }
 
 export default PostJob
-
 
 
 

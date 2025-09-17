@@ -34,7 +34,7 @@ const AppliedJob = () => {
                                         : "bg-gray-500"
                                     }`}
                                     >
-                                        {" "}
+                                      
                                         {appliedJob?.status}
                                     </Badge>
                                 </TableCell>

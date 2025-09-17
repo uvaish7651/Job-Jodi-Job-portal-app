@@ -12,4 +12,7 @@ router.route("/logout").post(logout);
 router.route("/profile/update").put(authenticateToken, singleUpload, updateProfile);
 
 export default router;
+   
+
+
 

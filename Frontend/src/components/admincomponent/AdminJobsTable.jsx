@@ -21,7 +21,7 @@ const AdminJobsTable = () => {
                     toLowerCase().includes(searchJobByText.toLowerCase());
             });
 
-        setFilterJobs(filteredJobs); // ✅ correct state setter
+        setFilterJobs(filteredJobs); 
     }, [allAdminJobs, searchJobByText]);
 
     console.log("companies from redux:", companies);

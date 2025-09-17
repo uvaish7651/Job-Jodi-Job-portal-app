@@ -122,36 +122,45 @@ const Description = () => {
 
                 <div className='my-4'>
                     <h1 className='font-bold my-1'>
-                        Role: {" "}
+                        Role: 
                         <span className='pl-4 font-normal text-gray-800'>
                             {singleJob?.position}
                         </span>
                     </h1>
 
                     <h1 className='font-bold my-1'>
-                        Location: {" "}
+                        Location: 
                         <span className='pl-4 font-normal text-gray-800'>
                             {singleJob?.location}
 
                         </span>
                     </h1>
 
+                     <h1 className='font-bold my-1'>
+                        Country: 
+                        <span className='pl-4 font-normal text-gray-800'>
+                            {singleJob?.country}
+
+                        </span>
+                    </h1>
+
+
                     <h1 className='font-bold my-1'>
-                        Salary: {" "}
+                        Salary: 
                         <span className='pl-4 font-normal text-gray-800'>
                             {singleJob?.salary} LPA
                         </span>
                     </h1>
 
                     <h1 className='font-bold my-1'>
-                        Experience: {" "}
+                        Experience: 
                         <span className='pl-4 font-normal text-gray-800'>
                             {singleJob?.experience} Year
                         </span>
                     </h1>
 
                     <h1 className='font-bold my-1'>
-                        Total Applicants: {" "}
+                        Total Applicants: 
                         <span className='pl-4 font-normal text-gray-800'>
                             {singleJob?.applications?.length || 0}
                         </span>
@@ -160,14 +169,14 @@ const Description = () => {
 
 
                     <h1 className='font-bold my-1'>
-                        Job Type: {" "}
+                        Job Type: 
                         <span className='pl-4 font-normal text-gray-800'>
                             {singleJob?.jobType}
                         </span>
                     </h1>
 
                     <h1 className='font-bold my-1'>
-                        Post Date: {" "}
+                        Post Date:
                         <span className='pl-4 font-normal text-gray-800'>
 
                             {(singleJob?.createdAt || "").split("T")[0]}

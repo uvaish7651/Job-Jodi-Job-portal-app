@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 //Admin job posting
 export const postJob = async (req, res) => {
     try {
-        const { title, description, requirements, salary, location,
+        const { title, description, requirements, salary, location, country,
             jobType, position, companyId, experience } = req.body;
 
         const userId = req.id;
@@ -24,6 +24,7 @@ export const postJob = async (req, res) => {
             requirements: requirements.split(","),
             salary: Number(salary),
             location,
+            country,
             jobType,
             position,
             company: companyId,

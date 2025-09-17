@@ -19,6 +19,7 @@ const CompanySetup = () => {
         description: "",
         website: "",
         location: "",
+        country: "",
         file: null,
     });
     const { singleCompany } = useSelector((store) => store.company);
@@ -42,6 +43,7 @@ const CompanySetup = () => {
         formData.append("description", input.description);
         formData.append("website", input.website);
         formData.append("location", input.location);
+        formData.append("country", input.country);
         if (input.file) {
             formData.append("file", input.file);
         }
@@ -57,9 +59,9 @@ const CompanySetup = () => {
                     withCredentials: true,
                 }
             );
-            console.log(res); 
+            console.log(res);
 
-            
+
             if (res.status === 200 && res.data.message) {
                 toast.success(res.data.message);
                 navigate("/admin/companies");
@@ -81,6 +83,7 @@ const CompanySetup = () => {
             description: singleCompany.description || "",
             website: singleCompany.website || "",
             location: singleCompany.location || "",
+            country: singleCompany.country || "",
             file: singleCompany.file || null,
         });
     }, [singleCompany]);
@@ -139,6 +142,15 @@ const CompanySetup = () => {
                             />
                         </div>
                         <div>
+                            <Label>Country</Label>
+                            <Input
+                                type="text"
+                                name="country"
+                                value={input.country}
+                                onChange={changeEventHandler}
+                            />
+                        </div>
+                        <div>
                             <Label>Logo</Label>
                             <Input
                                 type="file"
@@ -149,7 +161,7 @@ const CompanySetup = () => {
                     </div>
                     {loading ? (
                         <Button className="w-full my-4">
-                            {" "}
+
                             <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Please wait{" "}
                         </Button>
                     ) : (

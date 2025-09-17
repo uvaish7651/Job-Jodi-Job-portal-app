@@ -12,7 +12,7 @@ import useGetAllAppliedJobs from '../../hooks/useGetAllAppliedJobs'
 
 
 
-// const skills = ["HTML", "CSS", "Tailwind CSS", "JavaScript", "React", "Node.js", "Express.js", "MongoDB", "Redux"]
+
 
 const isResume = true;
 

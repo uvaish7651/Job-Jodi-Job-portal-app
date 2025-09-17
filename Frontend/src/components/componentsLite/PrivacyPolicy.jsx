@@ -6,7 +6,7 @@ const PrivacyPolicy = () => {
             <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
 
             <p>
-                At <strong>Job Jodi</strong> (accessible at <a href="https://jobjodi.com" className="text-blue-600">jobjodi.com</a>), we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data.
+                At <strong>Job Jodi</strong> (accessible at <a href="https://job-jodi-app-4.onrender.com" className="text-blue-600">jobjodi.com</a>), we value your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, and safeguard your data.
             </p>
 
             <h2 className="text-xl font-semibold mt-6">1. Information We Collect</h2>

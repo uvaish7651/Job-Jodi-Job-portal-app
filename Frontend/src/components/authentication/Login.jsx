@@ -123,18 +123,11 @@ const Login = () => {
             </RadioGroup>
           </div>
 
-          {loading ? (
-            <div className='flex items-center justify-center my-10'>
-              <div className='spinner-border text-blue-600' role='status'>
-                <span className='sr-only'>Loading...</span>
-              </div>
-            </div>
-          ) : (
-            <button className='w-3/4 py-3 my-3 text-white flex items-center justify-center max-w-7xl
+          <button className='w-3/4 py-3 my-3 text-white flex items-center justify-center max-w-7xl
             mx-auto bg-blue-600 hover:bg-blue-800//90 rounded-md'>
               Login
             </button>
-          )}
+
 
           <div className=''>
             <p className='text-gray-700 text-md my-2 text-center '>

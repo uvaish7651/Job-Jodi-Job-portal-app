@@ -48,26 +48,26 @@ const Navbar = () => {
                             user && user.role === "Recruiter" ? (
                                 <>
                                     <li>
-                                        {" "}
+
                                         <Link to={"/admin/companies"}>Companies</Link>
                                     </li>
                                     <li>
-                                        {" "}
+
                                         <Link to={"/admin/jobs"}>Jobs</Link>
                                     </li>
                                 </>
                             ) : (
                                 <>
                                     <li>
-                                        {" "}
+
                                         <Link to={"/Home"}>Home</Link>
                                     </li>
                                     <li>
-                                        {" "}
+
                                         <Link to={"/Browse"}>Browse</Link>
                                     </li>
                                     <li>
-                                        {" "}
+
                                         <Link to={"/Jobs"}>Job</Link>
                                     </li>
                                 </>
@@ -134,10 +134,3 @@ export default Navbar;
 
 
 
-
-
-// <div className='flex gap-4 mt-3 items-center justify-center'>
-//                                         {/* <Button variant="link">View</Button> */}
-//                                         <LogOut></LogOut>
-//                                         <Button variant="link">Logout</Button>
-//                                     </div>
