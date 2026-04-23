@@ -33,7 +33,6 @@ const Register = () => {
   // handle file input
   const changeFileHandler = (e) => {
     const file = e.target.files?.[0];
-    console.log("Selected File:", file); // debug
     setInput({ ...input, file });
   };
 
@@ -41,7 +40,7 @@ const Register = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    console.log("FORM SUBMIT HO RAHA HAI", input); // debug
+    console.log("API:", USER_API_ENDPOINT);
 
     const formData = new FormData();
     formData.append("fullname", input.fullname);
@@ -58,7 +57,7 @@ const Register = () => {
       dispatch(setLoading(true));
 
       const res = await axios.post(
-        `${USER_API_ENDPOINT}/register`,
+        USER_API_ENDPOINT + "/register",
         formData,
         {
           headers: {
@@ -68,13 +67,10 @@ const Register = () => {
         }
       );
 
-      console.log("RESPONSE:", res.data);
-
       if (res.data.success) {
         toast.success(res.data.message);
         navigate("/login");
       }
-
     } catch (error) {
       console.log("FULL ERROR:", error);
       console.log("ERROR RESPONSE:", error?.response);
