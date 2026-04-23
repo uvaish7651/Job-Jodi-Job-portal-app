@@ -12,6 +12,7 @@ import { setLoading } from '../../redux/authSlice'
 
 
 const Register = () => {
+  
   const [input, setInput] = useState({
     fullname: "",
     email: "",
@@ -44,18 +45,22 @@ const Register = () => {
     if (input.file) {
       formData.append("file", input.file)
     }
+
     try {
       dispatch(setLoading(true));
+
       const res = await axios.post(`${USER_API_ENDPOINT}/register`, formData, {
         header: {
           "Content-Type": "multipart/form-data",
         },
         withCredentials: true,
       });
+
       if (res.data.success) {
         navigate("/login");
         toast.success(res.data.message);
       }
+
     } catch (error) {
       console.log(error)
       const errorMessage = error.response
@@ -69,6 +74,7 @@ const Register = () => {
   }
 
   const { user } = useSelector((store) => store.auth);
+  
   useEffect(() => {
     if (user) {
       navigate("/");

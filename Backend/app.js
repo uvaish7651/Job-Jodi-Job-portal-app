@@ -19,7 +19,8 @@ app.use(cookieParser());
 
 const corsOptions = {
     origin: [
-        "http://localhost:5173",            
+        "http://localhost:5173",
+        "https://your-frontend.vercel.app"
     ],
     credentials: true,
 };
@@ -28,7 +29,6 @@ app.use(cors(corsOptions));
 
 
 const PORT = process.env.PORT || 5001;
-
 
 
 app.use("/api/user", userRoute);

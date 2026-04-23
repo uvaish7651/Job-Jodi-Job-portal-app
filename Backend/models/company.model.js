@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+
 const companySchema = new mongoose.Schema({
     name: {
         type: String,
@@ -18,7 +19,7 @@ const companySchema = new mongoose.Schema({
          
     },
     logo: {
-          type: String, //URL for logo
+          type: String, 
     },
     userId: [{
         type: mongoose.Schema.Types.ObjectId,

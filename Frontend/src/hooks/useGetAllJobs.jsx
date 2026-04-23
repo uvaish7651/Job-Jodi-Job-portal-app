@@ -4,8 +4,6 @@ import { JOB_API_ENDPOINT } from '../utils/data';
 import { setAllJobs } from "@/redux/jobSlice"
 import { useDispatch, useSelector } from "react-redux";
 
-
-
 const useGetAllJobs = () => {
 
     const dispatch = useDispatch();

@@ -17,6 +17,7 @@ const authenticateToken = async (req, res, next) => {
                 success: false,
             })
         }
+        
         req.id = decoded.userId;
         next();
 

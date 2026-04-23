@@ -22,7 +22,6 @@ export const registerCompany = async (req, res) => {
 
         company = await Company.create({
             name: companyName,
-
             userId: req.id,
         });
         return res.status(201).json({
@@ -88,6 +87,7 @@ export const updateCompany = async (req, res) => {
     try {
         const { name, description, website, location } = req.body;
         const file = req.file;
+        
         //cloudinary
 
         const fileUri = getDataUri(file);

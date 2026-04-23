@@ -32,9 +32,6 @@ const jobSlice = createSlice({
         setSearchedQuery(state, action) {
             state.searchedQuery = action.payload;
         },
-
-
-
     }
 });
 
