@@ -20,7 +20,7 @@ app.use(cookieParser());
 const corsOptions = {
     origin: [
         "http://localhost:5173",
-        "https://your-frontend.vercel.app"
+        "https://job-jodi-job-portal-app.vercel.app/"
     ],
     credentials: true,
 };
@@ -28,16 +28,16 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
-const PORT = process.env.PORT || 5001;
-
 
 app.use("/api/user", userRoute);
 app.use("/api/company", companyRoute);
 app.use("/api/job", jobRoute);
 app.use("/api/application", applicationRoute);
 
+const PORT = process.env.PORT || 5001;
+
+connectDB();
 
 app.listen(PORT, () => {
-    connectDB();
     console.log(`Server is running on port ${PORT}`)
 });
