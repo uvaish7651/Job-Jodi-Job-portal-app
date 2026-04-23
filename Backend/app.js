@@ -20,7 +20,7 @@ app.use(cookieParser());
 const corsOptions = {
     origin: [
         "http://localhost:5173",
-        "https://job-jodi-job-portal-app.vercel.app/"
+        "https://job-jodi-job-portal-app.vercel.app"
     ],
     credentials: true,
 };
