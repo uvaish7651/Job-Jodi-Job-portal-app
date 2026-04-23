@@ -25,23 +25,20 @@ const Register = () => {
   const dispatch = useDispatch();
   const { loading, user } = useSelector((store) => store.auth);
 
-  // handle text input
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
 
-  // handle file input
   const changeFileHandler = (e) => {
     const file = e.target.files?.[0];
-    console.log("Selected File:", file); // debug
     setInput({ ...input, file });
   };
 
-  // submit form
   const submitHandler = async (e) => {
     e.preventDefault();
 
-    console.log("FORM SUBMIT HO RAHA HAI", input); // debug
+    // 🔥 DEBUG (deploy के बाद console में देखना)
+    console.log("API:", USER_API_ENDPOINT);
 
     const formData = new FormData();
     formData.append("fullname", input.fullname);
@@ -58,7 +55,7 @@ const Register = () => {
       dispatch(setLoading(true));
 
       const res = await axios.post(
-        `${USER_API_ENDPOINT}/register`,
+        USER_API_ENDPOINT + "/register",
         formData,
         {
           headers: {
@@ -68,18 +65,13 @@ const Register = () => {
         }
       );
 
-      console.log("RESPONSE:", res.data);
-
       if (res.data.success) {
         toast.success(res.data.message);
         navigate("/login");
       }
 
     } catch (error) {
-      console.log("FULL ERROR:", error);
-      console.log("ERROR RESPONSE:", error?.response);
-      console.log("ERROR DATA:", error?.response?.data);
-
+      console.log("ERROR:", error?.response?.data || error);
       toast.error(
         error?.response?.data?.message || "Unexpected error"
       );
@@ -103,105 +95,31 @@ const Register = () => {
 
           <h1 className='font-bold text-xl mb-5 text-center text-blue-500'>Register</h1>
 
-          <div className='my-2'>
-            <Label>Name</Label>
-            <Input
-              className="mt-2"
-              value={input.fullname}
-              name="fullname"
-              onChange={changeEventHandler}
-              type="text"
-              placeholder="Enter your name"
-            />
+          <Input name="fullname" onChange={changeEventHandler} placeholder="Name" />
+          <Input name="email" onChange={changeEventHandler} placeholder="Email" />
+          <Input name="password" type="password" onChange={changeEventHandler} placeholder="Password" />
+          <Input name="phoneNumber" onChange={changeEventHandler} placeholder="Phone" />
+
+          <div className="my-3">
+            <label>
+              <input type="radio" name="role" value="Student" onChange={changeEventHandler} /> Student
+            </label>
+            <label className="ml-4">
+              <input type="radio" name="role" value="Recruiter" onChange={changeEventHandler} /> Recruiter
+            </label>
           </div>
 
-          <div className='my-2'>
-            <Label>Email</Label>
-            <Input
-              className="mt-2"
-              value={input.email}
-              name="email"
-              onChange={changeEventHandler}
-              type="text"
-              placeholder="Enter your email"
-            />
-          </div>
+          <Input type="file" onChange={changeFileHandler} />
 
-          <div className='my-2'>
-            <Label>Password</Label>
-            <Input
-              className="mt-2"
-              value={input.password}
-              name="password"
-              onChange={changeEventHandler}
-              type="password"
-              placeholder="Enter your password"
-            />
-          </div>
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white p-2 mt-3 rounded"
+          >
+            Register
+          </button>
 
-          <div className='my-2'>
-            <Label>PhoneNumber</Label>
-            <Input
-              className="mt-2"
-              value={input.phoneNumber}
-              name="phoneNumber"
-              onChange={changeEventHandler}
-              type="tel"
-              placeholder="Enter your phoneNumber"
-            />
-          </div>
-
-          <div className='flex items-center justify-between'>
-            <RadioGroup className="flex items-center gap-4 my-5">
-
-              <div className="flex items-center space-x-2">
-                <Input
-                  type="radio"
-                  name="role"
-                  value="Student"
-                  checked={input.role === "Student"}
-                  onChange={changeEventHandler}
-                />
-                <Label>Student</Label>
-              </div>
-
-              <div className="flex items-center space-x-2">
-                <Input
-                  type="radio"
-                  name="role"
-                  value="Recruiter"
-                  checked={input.role === "Recruiter"}
-                  onChange={changeEventHandler}
-                />
-                <Label>Recruiter</Label>
-              </div>
-
-            </RadioGroup>
-          </div>
-
-          <div className='flex items-center gap-2'>
-            <Label>Profile Photo</Label>
-            <Input
-              type="file"
-              accept="image/*"
-              onChange={changeFileHandler}
-            />
-          </div>
-
-          {loading ? (
-            <p className="text-center mt-4">Loading...</p>
-          ) : (
-            <button
-              type='submit'
-              className='block w-full py-3 mt-4 text-white bg-blue-500 hover:bg-blue-700 rounded-md'
-            >
-              Register
-            </button>
-          )}
-
-          <p className='text-gray-500 text-md my-2 text-center'>
-            Already have an account?{" "}
-            <Link className='text-blue-500' to="/login">Login</Link>
+          <p className='text-center mt-3'>
+            Already have an account? <Link to="/login">Login</Link>
           </p>
 
         </form>
